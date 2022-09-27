@@ -47,31 +47,28 @@ export class AppComponent implements AfterViewInit {
             arr.push(subSplit[i]);
           }
         }
-        return (
-          arr.join(',\n') + ',' + subSplit[subSplit.length - 1] + ']' + split2
-        );
+        return arr.join(',\n') + subSplit[subSplit.length - 1] + ']' + split2;
       };
-      console.log(parseString);return;
-      // parseString(res).map((item: any) => {
-      //   const icon = new L.DivIcon({
-      //     className: 'marker',
-      //     html: `<img class="marker-image" src="${item.url}"/>`,
-      //     popupAnchor: [30, -10],
-      //   });
-      //   const marker = L.marker(
-      //     [Number(item.coordinate.lat), Number(item.coordinate.lon)],
-      //     {
-      //       icon,
-      //     }
-      //   ).bindPopup(`<div class="popup">
-      //                 <div>
-      //                   <img src="${item.url}" />
-      //                   <span>${item.name}</span>
-      //                 </div>
-      //                 <span>${item.category}</span>
-      //               </div>`);
-      //   marker.addTo(this.map);
-      // });
+      JSON.parse(parseString(res)).body.map((item: any) => {
+        const icon = new L.DivIcon({
+          className: 'marker',
+          html: `<img class="marker-image" src="${item.url}"/>`,
+          popupAnchor: [30, -10],
+        });
+        const marker = L.marker(
+          [Number(item.coordinate.lat), Number(item.coordinate.lon)],
+          {
+            icon,
+          }
+        ).bindPopup(`<div class="popup">
+                      <div>
+                        <img src="${item.url}" />
+                        <span>${item.name}</span>
+                      </div>
+                      <span>${item.category}</span>
+                    </div>`);
+        marker.addTo(this.map);
+      });
     });
   }
 }

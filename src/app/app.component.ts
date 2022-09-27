@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import * as L from 'leaflet';
 
 import { environment } from '../environments/environment';
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,22 @@ export class AppComponent implements AfterViewInit {
 
     // this.map.flyTo([-33.447493, -70.6225626], 13);
     this.api.get().subscribe((res) => {
-      JSON.parse(res).body.map((item: any) => {
+      const parseString = (str: string) => {
+        const split1 = str.split(']')[0];
+        const split2 = str.split(']')[1];
+        const subSplit = split1.split(',\n');
+        const arr = [];
+        for (let i = 0; i < subSplit.length; i++) {
+          if (i !== subSplit.length - 1) {
+            arr.push(subSplit[i]);
+          }
+        }
+        return (
+          arr.join(',\n') + ',' + subSplit[subSplit.length - 1] + ']' + split2
+        );
+      };
+      console.log(parseString);return;
+      parseString(res).body.map((item: any) => {
         const icon = new L.DivIcon({
           className: 'marker',
           html: `<img class="marker-image" src="${item.url}"/>`,

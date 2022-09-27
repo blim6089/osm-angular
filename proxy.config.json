@@ -1,0 +1,7 @@
+{
+  "/ads/*": {
+    "target": "https://private-a6bca-citadu.apiary-mock.com",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

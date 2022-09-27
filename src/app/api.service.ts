@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const API_URL = 'https://private-a6bca-citadu.apiary-mock.com/ads';
+const API_URL = 'http://localhost:4200/ads';
 @Injectable({
   providedIn: 'root',
 })

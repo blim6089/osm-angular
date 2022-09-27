@@ -52,26 +52,26 @@ export class AppComponent implements AfterViewInit {
         );
       };
       console.log(parseString);return;
-      parseString(res).body.map((item: any) => {
-        const icon = new L.DivIcon({
-          className: 'marker',
-          html: `<img class="marker-image" src="${item.url}"/>`,
-          popupAnchor: [30, -10],
-        });
-        const marker = L.marker(
-          [Number(item.coordinate.lat), Number(item.coordinate.lon)],
-          {
-            icon,
-          }
-        ).bindPopup(`<div class="popup">
-                      <div>
-                        <img src="${item.url}" />
-                        <span>${item.name}</span>
-                      </div>
-                      <span>${item.category}</span>
-                    </div>`);
-        marker.addTo(this.map);
-      });
+      // parseString(res).map((item: any) => {
+      //   const icon = new L.DivIcon({
+      //     className: 'marker',
+      //     html: `<img class="marker-image" src="${item.url}"/>`,
+      //     popupAnchor: [30, -10],
+      //   });
+      //   const marker = L.marker(
+      //     [Number(item.coordinate.lat), Number(item.coordinate.lon)],
+      //     {
+      //       icon,
+      //     }
+      //   ).bindPopup(`<div class="popup">
+      //                 <div>
+      //                   <img src="${item.url}" />
+      //                   <span>${item.name}</span>
+      //                 </div>
+      //                 <span>${item.category}</span>
+      //               </div>`);
+      //   marker.addTo(this.map);
+      // });
     });
   }
 }

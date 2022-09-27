@@ -9,17 +9,17 @@ const API_URL = 'https://private-a6bca-citadu.apiary-mock.com/ads';
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-  headerOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': '*',
-      'Content-Type': 'application/json',
-    }),
-  };
+  // headerOptions = {
+  //   headers: new HttpHeaders({
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Access-Control-Allow-Methods': '*',
+  //     'Content-Type': 'application/json',
+  //   }),
+  // };
 
   public get(): Observable<any> {
     return this.http
-      .get(API_URL, { ...this.headerOptions, responseType: 'json' })
+      .get(API_URL, { responseType: 'text' })
       .pipe(map((res) => res));
   }
 }

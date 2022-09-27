@@ -36,8 +36,7 @@ export class AppComponent implements AfterViewInit {
 
     // this.map.flyTo([-33.447493, -70.6225626], 13);
     this.api.get().subscribe((res) => {
-      console.log(res);return;
-      res.map((item: any) => {
+      JSON.parse(res).body.map((item: any) => {
         const icon = new L.DivIcon({
           className: 'marker',
           html: `<img class="marker-image" src="${item.url}"/>`,

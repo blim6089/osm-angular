@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+@import "leaflet/dist/leaflet.css";
+
+body {
+  margin: 0;
+
+  .marker {
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    padding: 8px;
+    border-radius: 50%;
+    background: #dd4397;
+
+    &::after {
+      content: "\A";
+      border-style: solid;
+      border-width: 20px 20px 20px 0;
+      border-color: transparent #dd4397 transparent transparent;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 24px) rotate(-90deg);
+    }
+
+    .marker-image {
+      width: 60px;
+      border-radius: 50%;
+    }
+  }
+
+  .leaflet-popup {
+    .leaflet-popup-content-wrapper {
+      box-shadow: 0 3px 14px rgb(0 0 0 / 10%);
+
+      .leaflet-popup-content {
+        width: 240px;
+        margin: 0;
+        padding: 12px;
+
+        .popup {
+          padding-right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          & > div {
+            display: flex;
+            align-items: center;
+
+            & > span {
+              font-size: 18px;
+              font-weight: 600;
+              margin: 0 8px;
+            }
+
+            & > img {
+              width: 50px;
+              height: 50px;
+              border-radius: 5px;
+            }
+          }
+          & > span {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 2px 8px;
+            min-width: 50px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            background: #fca536;
+          }
+        }
+      }
+    }
+
+    .leaflet-popup-close-button {
+      background: #eee;
+      border-radius: 50%;
+      top: 4px;
+      right: 4px;
+    }
+  }
+}
